@@ -40,7 +40,7 @@ This pipeline preprocesses and integrates multimodal spatial data from MACsima a
 <td width="50%" align="center">
 
 ### Integrated Spatial Distribution
-<img src="plots/V2_MACsimas_vs_Xenium.png" alt="Spatial Clusters" width="900"/>
+<img src="plots/V2_MACsimas_vs_Xenium.png" alt="Spatial Clusters" width="1000"/>
 
 *Cluster distribution in tissue context*
 
