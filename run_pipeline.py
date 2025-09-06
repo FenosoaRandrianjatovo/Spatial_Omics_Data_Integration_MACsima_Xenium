@@ -30,16 +30,16 @@ def run_complete_pipeline():
     
     try:
         # Step 1: Run preprocessing
-        print("\n🔄 STEP 1: Data Preprocessing")
+        print("\nData Preprocessing")
         print("-" * 50)
         sdata_macs, adata_rna, adata_adt = run_preprocessing()
         
         # Step 2: Create basic Xenium Explorer export
-        print("\n🔄 STEP 2: Basic Xenium Explorer Export")
+        print("\nBasic Xenium Explorer Export")
         print("-" * 50)
         explorer_path = main_basic_export(sdata_macs)
         
-        print("\n✅ PIPELINE COMPLETED SUCCESSFULLY!")
+        print("\nPIPELINE COMPLETED SUCCESSFULLY!")
         print("=" * 80)
         print("NEXT STEPS:")
         print("1. Run SpatialGlue integration using the generated AnnData objects")
@@ -50,7 +50,7 @@ def run_complete_pipeline():
         return sdata_macs, adata_rna, adata_adt
         
     except Exception as e:
-        print(f"\n❌ PIPELINE FAILED: {str(e)}")
+        print(f"\n PIPELINE FAILED: {str(e)}")
         print("\nFull traceback:")
         traceback.print_exc()
         sys.exit(1)
@@ -77,13 +77,13 @@ def run_complete_pipeline_with_spatialglue(n_clusters=6, clustering_method='mclu
     print("=" * 80)
     
     try:
-        # Step 1: Run preprocessing
-        print("\n🔄 STEP 1: Data Preprocessing")
+        # Run preprocessing
+        print("\n  Data Preprocessing")
         print("-" * 50)
         sdata_macs, adata_rna, adata_adt = run_preprocessing()
         
-        # Step 2: Run SpatialGlue integration
-        print("\n🔄 STEP 2: SpatialGlue Integration")
+        # Run SpatialGlue integration
+        print("\n SpatialGlue Integration")
         print("-" * 50)
         from config import OUTPUT_BASE_DIR
         rna_path = OUTPUT_BASE_DIR / "adata_RNA_xenium.h5ad"
@@ -95,8 +95,8 @@ def run_complete_pipeline_with_spatialglue(n_clusters=6, clustering_method='mclu
             clustering_method=clustering_method
         )
         
-        # Step 3: Create Xenium Explorer export with clustering
-        print("\n🔄 STEP 3: Xenium Explorer Export with Clustering")
+        #  Create Xenium Explorer export with clustering
+        print("\nXenium Explorer Export with Clustering")
         print("-" * 50)
         try:
             explorer_path = main_clustering_export(sdata_macs, adata_integrated)
@@ -106,7 +106,7 @@ def run_complete_pipeline_with_spatialglue(n_clusters=6, clustering_method='mclu
             print("[INFO] Creating basic export instead...")
             explorer_path = main_basic_export(sdata_macs)
         
-        print("\n✅ COMPLETE PIPELINE WITH SPATIALGLUE COMPLETED!")
+        print("\n COMPLETE PIPELINE WITH SPATIALGLUE COMPLETED!")
         print("=" * 80)
         print("RESULTS:")
         print(f"- Integrated data with clustering: {OUTPUT_BASE_DIR / f'data_Macsim_Xenium_spatialglue_cluster_{n_clusters}.h5ad'}")
@@ -117,7 +117,7 @@ def run_complete_pipeline_with_spatialglue(n_clusters=6, clustering_method='mclu
         return sdata_macs, adata_integrated
         
     except Exception as e:
-        print(f"\n❌ COMPLETE PIPELINE FAILED: {str(e)}")
+        print(f"\n COMPLETE PIPELINE FAILED: {str(e)}")
         print("\nFull traceback:")
         traceback.print_exc()
         sys.exit(1)
@@ -145,16 +145,16 @@ def run_with_clustering(clustering_results_path):
         clustering_results = ad.read_h5ad(clustering_results_path)
         
         # Run preprocessing
-        print("\n🔄 STEP 1: Data Preprocessing")
+        print("\n Data Preprocessing")
         print("-" * 50)
         sdata_macs, adata_rna, adata_adt = run_preprocessing()
         
         # Create Xenium Explorer export with clustering
-        print("\n🔄 STEP 2: Xenium Explorer Export with Clustering")
+        print("\n Xenium Explorer Export with Clustering")
         print("-" * 50)
         explorer_path = main_clustering_export(sdata_macs, clustering_results)
         
-        print("\n✅ PIPELINE WITH CLUSTERING COMPLETED!")
+        print("\n PIPELINE WITH CLUSTERING COMPLETED!")
         print("=" * 80)
         print(f"Xenium Explorer files available at: {explorer_path}")
         print("=" * 80)
@@ -162,7 +162,7 @@ def run_with_clustering(clustering_results_path):
         return sdata_macs, adata_rna, adata_adt
         
     except Exception as e:
-        print(f"\n❌ PIPELINE FAILED: {str(e)}")
+        print(f"\n PIPELINE FAILED: {str(e)}")
         print("\nFull traceback:")
         traceback.print_exc()
         sys.exit(1)
