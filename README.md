@@ -31,7 +31,7 @@ This pipeline preprocesses and integrates multimodal spatial data from MACsima a
 <tr>
 <td width="50%" align="center">
 
-### UMAP Embeddings
+### Integrated UMAP Embeddings
 <img src="plots/umap_plot_V1_MACsimas_vs_Xenium.png" alt="UMAP Results" width="400"/>
 
 *Integrated MACsima-Xenium data clusters*
@@ -39,8 +39,8 @@ This pipeline preprocesses and integrates multimodal spatial data from MACsima a
 </td>
 <td width="50%" align="center">
 
-### Spatial Distribution
-<img src="plots/V2_MACsimas_vs_Xenium.png" alt="Spatial Clusters" width="500"/>
+### Integrated Spatial Distribution
+<img src="plots/V2_MACsimas_vs_Xenium.png" alt="Spatial Clusters" width="900"/>
 
 *Cluster distribution in tissue context*
 
@@ -70,7 +70,7 @@ This pipeline preprocesses and integrates multimodal spatial data from MACsima a
 ### 6 Clusters using Mcluster
 <img src="plots/With_Annotation_SpatialGlue_Mics_Xenium_n_clusters6.png" alt="Annotated Results" width="700"/>
 
-*Detailed cluster Analysis*
+*Detailed cluster Analysis of the Integrated MACsima-Xenium data*
 
 </td>
 </tr>
