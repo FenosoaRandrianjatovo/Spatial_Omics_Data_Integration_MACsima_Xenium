@@ -346,6 +346,7 @@ R --version
 - **SpatialData**: [An open and universal framework for processing spatial omics data,](https://github.com/scverse/spatialdata)
 - **Cellpose**: [Cell Segmentation,](https://github.com/MouseLand/cellpose)
 - **Annotated data**: [anndata is a Python package for handling annotated data](https://anndata.readthedocs.io/en/stable/)
+- **scverse**: [Foundational tools for single-cell omics data analysis]([https://anndata.readthedocs.io/en/stable/](https://scverse.org/)
 - **Xenium Explorer**: [10x Genomics Visualization.](https://www.10xgenomics.com/platforms/xenium?utm_medium=search&utm_source=google&utm_term=10x+genomics+xenium&useroffertype=website-page&utm_content=website-page&utm_campaign=7011P000001Pw8ZQAS&usercampaignid=7011P000001Pw8ZQAS&gad_source=1)
 
 
