@@ -31,7 +31,7 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
         (sdata_macs, adata_integrated) with results
     """
     print("=" * 80)
-    print("🧬 COMPLETE MACSIMA-XENIUM INTEGRATION PIPELINE WITH SPATIALGLUE")
+    print(" COMPLETE MACSIMA-XENIUM INTEGRATION PIPELINE WITH SPATIALGLUE")
     print("=" * 80)
     print(f"Configuration:")
     print(f"  - Clusters: {n_clusters}")
@@ -45,14 +45,14 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
         rna_path = OUTPUT_BASE_DIR / "adata_RNA_xenium.h5ad"
         adt_path = OUTPUT_BASE_DIR / "adata_ADT_mics.h5ad"
         
-        # Step 1: Data Preprocessing (if needed)
+        # Data Preprocessing (if needed)
         if not skip_preprocessing or not (rna_path.exists() and adt_path.exists()):
             print("\n🔄 STEP 1: Data Preprocessing")
             print("-" * 50)
             from preprocessing import main as run_preprocessing
             sdata_macs, adata_rna, adata_adt = run_preprocessing()
         else:
-            print("\n⏭️  STEP 1: Skipping preprocessing (files exist)")
+            print("\n Skipping preprocessing (files exist)")
             print("-" * 50)
             # Load existing spatial data for later use
             print("[INFO] Loading existing spatial data structure...")
@@ -66,8 +66,8 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
                 if key not in sdata_macs.points:
                     sdata_macs.points[key] = pts
         
-        # Step 2: SpatialGlue Integration
-        print("\n🔄 STEP 2: SpatialGlue Integration & Clustering")
+        # SpatialGlue Integration
+        print("\n SpatialGlue Integration & Clustering")
         print("-" * 50)
         from spatialglue_integration import main_spatialglue_pipeline
         
@@ -80,8 +80,8 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
             random_seed=random_seed
         )
         
-        # Step 3: Create Xenium Explorer Export
-        print("\n🔄 STEP 3: Xenium Explorer Export with Clustering")
+        # Create Xenium Explorer Export
+        print("\n Xenium Explorer Export with Clustering")
         print("-" * 50)
         try:
             from xenium_explorer_export import main_clustering_export
@@ -99,24 +99,24 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
                 explorer_path = "Export failed"
         
         # Final Summary
-        print("\n✅ COMPLETE PIPELINE SUCCESSFULLY COMPLETED!")
+        print("\n COMPLETE PIPELINE SUCCESSFULLY COMPLETED!")
         print("=" * 80)
-        print("📊 RESULTS SUMMARY:")
-        print(f"  📁 Output directory: {OUTPUT_BASE_DIR}")
-        print(f"  🧬 RNA data: {rna_path}")
-        print(f"  🧬 Protein data: {adt_path}")
-        print(f"  🔗 Integrated data: {OUTPUT_BASE_DIR / f'data_Macsim_Xenium_spatialglue_cluster_{n_clusters}.h5ad'}")
-        print(f"  📈 Plots directory: {OUTPUT_BASE_DIR / 'plots'}")
-        print(f"  🌐 Xenium Explorer: {explorer_path}")
-        print(f"  📊 Number of cells: {adata_integrated.n_obs}")
-        print(f"  🧪 Number of genes: {adata_integrated.n_vars}")
-        print(f"  🎯 Number of clusters: {n_clusters}")
+        print(" RESULTS SUMMARY:")
+        print(f"  Output directory: {OUTPUT_BASE_DIR}")
+        print(f"   RNA data: {rna_path}")
+        print(f"   Protein data: {adt_path}")
+        print(f"   Integrated data: {OUTPUT_BASE_DIR / f'data_Macsim_Xenium_spatialglue_cluster_{n_clusters}.h5ad'}")
+        print(f"   Plots directory: {OUTPUT_BASE_DIR / 'plots'}")
+        print(f"   Xenium Explorer: {explorer_path}")
+        print(f"   Number of cells: {adata_integrated.n_obs}")
+        print(f"   Number of genes: {adata_integrated.n_vars}")
+        print(f"   Number of clusters: {n_clusters}")
         print("=" * 80)
         
         return sdata_macs, adata_integrated
         
     except Exception as e:
-        print(f"\n❌ PIPELINE FAILED: {str(e)}")
+        print(f"\n PIPELINE FAILED: {str(e)}")
         print("\nFull traceback:")
         traceback.print_exc()
         sys.exit(1)
@@ -136,7 +136,7 @@ def run_spatialglue_only(rna_path=None, adt_path=None, **kwargs):
         Additional arguments for SpatialGlue pipeline
     """
     print("=" * 80)
-    print("🔗 SPATIALGLUE INTEGRATION ONLY")
+    print("SPATIALGLUE INTEGRATION ONLY")
     print("=" * 80)
     
     try:
@@ -163,7 +163,7 @@ def run_spatialglue_only(rna_path=None, adt_path=None, **kwargs):
             **kwargs
         )
         
-        print(f"\n✅ SpatialGlue integration completed!")
+        print(f"\n SpatialGlue integration completed!")
         print(f"Results saved to: {OUTPUT_BASE_DIR}")
         
         return adata_integrated
