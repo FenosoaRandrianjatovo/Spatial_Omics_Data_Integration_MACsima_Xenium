@@ -88,7 +88,8 @@ This pipeline prepares data for SpatialGlue integration:
 ## Pipeline Architecture
 
 ```
-data_integration_MACsima_Xenium/
+Spatial_Omics_Data_Integration_MACsima_Xenium/
+├──  plots 
 ├──  config.py                     # Configuration and parameters
 ├──  utils.py                      # Utility functions
 ├──  preprocessing.py              # Data preprocessing pipeline
