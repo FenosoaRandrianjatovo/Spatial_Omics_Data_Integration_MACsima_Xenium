@@ -136,13 +136,13 @@ data_integration_MACsima_Xenium/
 - **Model Training**: Neural network training for cross-modal integration
 - **Embedding Generation**: Creates joint latent space representations
 
-### 7. Clustering Analysis (Using SpatialGlue and Sopa)
+### 7. Clustering Analysis (Using R mcluster, SpatialGlue, Sopa, etc...)
 
 - **mclust**: Model-based clustering using R mclust package
 - **Leiden/Louvain**: Graph-based clustering algorithms
 - **Visualization**: UMAP, spatial plots, and weight distribution analysis
 
-### 8. Output Generation 
+### 8. Output Generation (Using anndata , SpatialData, scverse,  sopa, etc..)
 
 - Saves processed data in H5AD format
 - Exports Xenium Explorer compatible files
