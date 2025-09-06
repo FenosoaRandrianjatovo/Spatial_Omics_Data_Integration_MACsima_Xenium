@@ -154,7 +154,7 @@ def write_xenium_explorer_with_clustering(sdata_macs, clustering_results, output
         save_h5ad=True,
         run_name="MACSima ROI1 with SpatialGlue"
     )
-    
+
     return output_path
 
 
