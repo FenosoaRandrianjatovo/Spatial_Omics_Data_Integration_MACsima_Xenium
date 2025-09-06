@@ -47,7 +47,7 @@ def run_full_pipeline(n_clusters=6, clustering_method='mclust',
         
         # Data Preprocessing (if needed)
         if not skip_preprocessing or not (rna_path.exists() and adt_path.exists()):
-            print("\n🔄 STEP 1: Data Preprocessing")
+            print("\n Data Preprocessing")
             print("-" * 50)
             from preprocessing import main as run_preprocessing
             sdata_macs, adata_rna, adata_adt = run_preprocessing()
@@ -169,7 +169,7 @@ def run_spatialglue_only(rna_path=None, adt_path=None, **kwargs):
         return adata_integrated
         
     except Exception as e:
-        print(f"\n❌ SpatialGlue integration failed: {str(e)}")
+        print(f"\n SpatialGlue integration failed: {str(e)}")
         raise
 
 
