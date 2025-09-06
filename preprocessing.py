@@ -165,36 +165,36 @@ def main():
     print("=" * 60)
     
     try:
-        # Step 1: Load data
+        # Load data
         sdata_macs, sdata_xenium = load_spatial_data()
         
-        # Step 2: Setup image processing
+        # Setup image processing
         setup_image_patches(sdata_macs)
         print("=" * 40)
         
-        # Step 3: Cell segmentation
+        #  Cell segmentation
         perform_cell_segmentation(sdata_macs)
         print("=" * 40)
         
-        # Step 4: Integrate Xenium transcripts
+        #  Integrate Xenium transcripts
         integrate_xenium_transcripts(sdata_macs, sdata_xenium)
         print("=" * 40)
         
-        # Step 5: Aggregate data
+        # Aggregate data
         aggregate_data(sdata_macs)
         print("=" * 40)
         
-        # Step 6: Create AnnData objects
+        # Create AnnData objects
         adata_rna, adata_adt = create_anndata_objects(sdata_macs)
         
-        # Step 7: Print summary
+        # Print summary
         print_data_summary(adata_rna, adata_adt)
         
-        # Step 8: Save results
+        # Save results
         print("[INFO] Saving AnnData objects...")
         rna_path, adt_path = save_anndata_objects(adata_rna, adata_adt, OUTPUT_BASE_DIR)
         
-        # Step 9: Validate outputs
+        # Validate outputs
         if validate_outputs([rna_path, adt_path]):
             print("[SUCCESS] Preprocessing pipeline completed successfully!")
         else:
