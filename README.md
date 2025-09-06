@@ -219,47 +219,47 @@ explorer_path = main_clustering_export(sdata_macs, clustering_results)
 
 ## Data Processing Steps
 
-### 1. Data Loading
+### 1. Data Loading (Using Sopa)
 
 - **MACsima**: Loads protein imaging data with spatial coordinates
 - **Xenium**: Loads RNA transcript data with cell and nucleus boundaries
 
-### 2. Image Preprocessing
+### 2. Image Preprocessing (Using Sopa and SpatialData)
 
 - Creates image patches for efficient processing
 - Identifies DAPI channel automatically for nuclear staining
 
-### 3. Cell Segmentation
+### 3. Cell Segmentation (Using Sopa Cellpose)
 
 - Uses Cellpose with pretrained models
 - GPU acceleration for faster processing
 - Customizable cell diameter and model parameters
 
-### 4. Data Integration
+### 4. Data Integration (Using Sopa )
 
 - Merges Xenium transcript data with MACsima spatial framework
 - Preserves spatial coordinates across modalities
 
-### 5. Data Aggregation
+### 5. Data Aggregation (Using Sopa )
 
 - **Genes**: Counts transcript molecules per cell
 - **Proteins**: Aggregates channel intensities per cell
 - Creates separate AnnData objects for RNA and protein data
 
-### 6. SpatialGlue Integration
+### 6. SpatialGlue Integration (Using SpatialGlue)
 
 - **Preprocessing**: Normalization and feature extraction for both modalities
 - **Graph Construction**: Builds neighbor graphs for spatial relationships
 - **Model Training**: Neural network training for cross-modal integration
 - **Embedding Generation**: Creates joint latent space representations
 
-### 7. Clustering Analysis
+### 7. Clustering Analysis (Using SpatialGlue and Sopa)
 
 - **mclust**: Model-based clustering using R mclust package
 - **Leiden/Louvain**: Graph-based clustering algorithms
 - **Visualization**: UMAP, spatial plots, and weight distribution analysis
 
-### 8. Output Generation
+### 8. Output Generation 
 
 - Saves processed data in H5AD format
 - Exports Xenium Explorer compatible files
